@@ -2,19 +2,25 @@ const mongoose = require('mongoose')
 
 const contactSchema = mongoose.Schema(
     {
-        name:{
-            type: String,
-            required: [true,"Please provide the name"]
-        },
-        
-        email:{
-            type: String,
-            required: [true,"Please provide the email address"]
+        user_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: "User",
         },
 
-        phone:{
+        name: {
             type: String,
-            required: [true,"Please provide the phone number"]
+            required: [true, "Please provide the name"]
+        },
+
+        email: {
+            type: String,
+            required: [true, "Please provide the email address"]
+        },
+
+        phone: {
+            type: String,
+            required: [true, "Please provide the phone number"]
         },
     },
     {
@@ -22,4 +28,4 @@ const contactSchema = mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model('Contact',contactSchema);
+module.exports = mongoose.model('Contact', contactSchema);
