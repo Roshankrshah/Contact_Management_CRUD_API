@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler');
-//const Contact = require('../models/contactModel')
+const User = require('../models/userModel')
 
 const registerUser = asyncHandler(async (req,res)=>{
     res.send("Register");
