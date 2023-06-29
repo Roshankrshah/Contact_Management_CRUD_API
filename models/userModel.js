@@ -1,21 +1,19 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema(
     {
-        username:{
+        username: {
             type: String,
-            required: [true,'Please provide user name']
+            required: [true, "Please add the user name"],
         },
-
-        email:{
+        email: {
             type: String,
-            required: [true,'Please provide user email address'],
-            unique: [true,'email already taken']
+            required: [true, "Please add the user email address"],
+            unique: [true, "Email address already taken"],
         },
-
         password: {
             type: String,
-            required: [true,'Please provide user password']
+            required: [true, "Please add the user password"],
         },
     },
     {
@@ -23,4 +21,14 @@ const userSchema = mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model('User',userSchema);
+/*userSchema.methods.createJWT = function () {
+    return jwt.sign(
+      { userId: this._id, name: this.name },
+      process.env.ACCESS_TOKEN_SECRET,
+      {
+        expiresIn: process.env.JWT_LIFETIME,
+      }
+    )
+  }*/
+
+module.exports = mongoose.model("User", userSchema);
